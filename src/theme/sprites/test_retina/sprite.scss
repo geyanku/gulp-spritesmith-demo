@@ -1,0 +1,128 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$edit-name: 'edit';
+$edit-x: 0px;
+$edit-y: 96px;
+$edit-offset-x: 0px/2;
+$edit-offset-y: -96px/2;
+$edit-width: 48px/2;
+$edit-height: 48px/2;
+$edit-total-width: 192px/2;
+$edit-total-height: 144px/2;
+$edit-image: 'src/assets/test_retina/gulp_sprite/sprite.png';
+$edit: (0px, 96px, 0px/2, -96px/2, 48px/2, 48px/2, 192px/2, 144px/2, 'src/assets/test_retina/gulp_sprite/sprite.png', 'edit', );
+$edit-2x-name: 'edit@2x';
+$edit-2x-x: 0px;
+$edit-2x-y: 0px;
+$edit-2x-offset-x: 0px/2;
+$edit-2x-offset-y: 0px/2;
+$edit-2x-width: 96px/2;
+$edit-2x-height: 96px/2;
+$edit-2x-total-width: 192px/2;
+$edit-2x-total-height: 144px/2;
+$edit-2x-image: 'src/assets/test_retina/gulp_sprite/sprite.png';
+$edit-2x: (0px, 0px, 0px/2, 0px/2, 96px/2, 96px/2, 192px/2, 144px/2, 'src/assets/test_retina/gulp_sprite/sprite.png', 'edit@2x', );
+$phone-name: 'phone';
+$phone-x: 48px;
+$phone-y: 96px;
+$phone-offset-x: -48px/2;
+$phone-offset-y: -96px/2;
+$phone-width: 48px/2;
+$phone-height: 48px/2;
+$phone-total-width: 192px/2;
+$phone-total-height: 144px/2;
+$phone-image: 'src/assets/test_retina/gulp_sprite/sprite.png';
+$phone: (48px, 96px, -48px/2, -96px/2, 48px/2, 48px/2, 192px/2, 144px/2, 'src/assets/test_retina/gulp_sprite/sprite.png', 'phone', );
+$phone-2x-name: 'phone@2x';
+$phone-2x-x: 96px;
+$phone-2x-y: 0px;
+$phone-2x-offset-x: -96px/2;
+$phone-2x-offset-y: 0px/2;
+$phone-2x-width: 96px/2;
+$phone-2x-height: 96px/2;
+$phone-2x-total-width: 192px/2;
+$phone-2x-total-height: 144px/2;
+$phone-2x-image: 'src/assets/test_retina/gulp_sprite/sprite.png';
+$phone-2x: (96px, 0px, -96px/2, 0px/2, 96px/2, 96px/2, 192px/2, 144px/2, 'src/assets/test_retina/gulp_sprite/sprite.png', 'phone@2x', );
+$spritesheet-width: 192px;
+$spritesheet-height: 144px;
+$spritesheet-image: 'src/assets/test_retina/gulp_sprite/sprite.png';
+$spritesheet-sprites: ($edit, $edit-2x, $phone, $phone-2x, );
+$spritesheet: (192px, 144px, 'src/assets/test_retina/gulp_sprite/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-background-size($sprite) {
+  background-size: nth($sprite, 7) nth($sprite, 8);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+  @include sprite-background-size($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

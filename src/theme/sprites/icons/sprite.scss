@@ -1,0 +1,161 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$add-friend-name: 'add_friend';
+$add-friend-x: 0px;
+$add-friend-y: 0px;
+$add-friend-offset-x: 0px/2;
+$add-friend-offset-y: 0px/2;
+$add-friend-width: 48px/2;
+$add-friend-height: 48px/2;
+$add-friend-total-width: 144px/2;
+$add-friend-total-height: 130px/2;
+$add-friend-image: 'src/assets/icons/gulp_sprite/sprite.png';
+$add-friend: (0px, 0px, 0px/2, 0px/2, 48px/2, 48px/2, 144px/2, 130px/2, 'src/assets/icons/gulp_sprite/sprite.png', 'add_friend', );
+$edit-name: 'edit';
+$edit-x: 48px;
+$edit-y: 0px;
+$edit-offset-x: -48px/2;
+$edit-offset-y: 0px/2;
+$edit-width: 48px/2;
+$edit-height: 48px/2;
+$edit-total-width: 144px/2;
+$edit-total-height: 130px/2;
+$edit-image: 'src/assets/icons/gulp_sprite/sprite.png';
+$edit: (48px, 0px, -48px/2, 0px/2, 48px/2, 48px/2, 144px/2, 130px/2, 'src/assets/icons/gulp_sprite/sprite.png', 'edit', );
+$edit-primary-name: 'edit_primary';
+$edit-primary-x: 0px;
+$edit-primary-y: 48px;
+$edit-primary-offset-x: 0px/2;
+$edit-primary-offset-y: -48px/2;
+$edit-primary-width: 48px/2;
+$edit-primary-height: 48px/2;
+$edit-primary-total-width: 144px/2;
+$edit-primary-total-height: 130px/2;
+$edit-primary-image: 'src/assets/icons/gulp_sprite/sprite.png';
+$edit-primary: (0px, 48px, 0px/2, -48px/2, 48px/2, 48px/2, 144px/2, 130px/2, 'src/assets/icons/gulp_sprite/sprite.png', 'edit_primary', );
+$fav-done-icon-name: 'fav_done_icon';
+$fav-done-icon-x: 96px;
+$fav-done-icon-y: 48px;
+$fav-done-icon-offset-x: -96px/2;
+$fav-done-icon-offset-y: -48px/2;
+$fav-done-icon-width: 36px/2;
+$fav-done-icon-height: 34px/2;
+$fav-done-icon-total-width: 144px/2;
+$fav-done-icon-total-height: 130px/2;
+$fav-done-icon-image: 'src/assets/icons/gulp_sprite/sprite.png';
+$fav-done-icon: (96px, 48px, -96px/2, -48px/2, 36px/2, 34px/2, 144px/2, 130px/2, 'src/assets/icons/gulp_sprite/sprite.png', 'fav_done_icon', );
+$fav-icon-name: 'fav_icon';
+$fav-icon-x: 0px;
+$fav-icon-y: 96px;
+$fav-icon-offset-x: 0px/2;
+$fav-icon-offset-y: -96px/2;
+$fav-icon-width: 36px/2;
+$fav-icon-height: 34px/2;
+$fav-icon-total-width: 144px/2;
+$fav-icon-total-height: 130px/2;
+$fav-icon-image: 'src/assets/icons/gulp_sprite/sprite.png';
+$fav-icon: (0px, 96px, 0px/2, -96px/2, 36px/2, 34px/2, 144px/2, 130px/2, 'src/assets/icons/gulp_sprite/sprite.png', 'fav_icon', );
+$phone-name: 'phone';
+$phone-x: 48px;
+$phone-y: 48px;
+$phone-offset-x: -48px/2;
+$phone-offset-y: -48px/2;
+$phone-width: 48px/2;
+$phone-height: 48px/2;
+$phone-total-width: 144px/2;
+$phone-total-height: 130px/2;
+$phone-image: 'src/assets/icons/gulp_sprite/sprite.png';
+$phone: (48px, 48px, -48px/2, -48px/2, 48px/2, 48px/2, 144px/2, 130px/2, 'src/assets/icons/gulp_sprite/sprite.png', 'phone', );
+$right-arrow-name: 'right_arrow';
+$right-arrow-x: 96px;
+$right-arrow-y: 0px;
+$right-arrow-offset-x: -96px/2;
+$right-arrow-offset-y: 0px/2;
+$right-arrow-width: 48px/2;
+$right-arrow-height: 48px/2;
+$right-arrow-total-width: 144px/2;
+$right-arrow-total-height: 130px/2;
+$right-arrow-image: 'src/assets/icons/gulp_sprite/sprite.png';
+$right-arrow: (96px, 0px, -96px/2, 0px/2, 48px/2, 48px/2, 144px/2, 130px/2, 'src/assets/icons/gulp_sprite/sprite.png', 'right_arrow', );
+$spritesheet-width: 144px;
+$spritesheet-height: 130px;
+$spritesheet-image: 'src/assets/icons/gulp_sprite/sprite.png';
+$spritesheet-sprites: ($add-friend, $edit, $edit-primary, $fav-done-icon, $fav-icon, $phone, $right-arrow, );
+$spritesheet: (144px, 130px, 'src/assets/icons/gulp_sprite/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-background-size($sprite) {
+  background-size: nth($sprite, 7) nth($sprite, 8);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+  @include sprite-background-size($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
