@@ -36,4 +36,5 @@ scss文件输出路径：<code>src/theme/sprites/**/sprite.scss</code>
   // ***
 </style>
 ```
+
 将`img-class-name`引入到指定标签下即可。这里注意，$imgname是不含后缀的文件名，前面的`$`不可省略
