@@ -1,30 +1,39 @@
 # test-sprite-smith
 
-> A Vue.js project
+> 一个使用gulp-spritesmith自定义模板功能实现的demo。gulp-spritesmith支持1倍图和2倍图的自动适配，但前提是需要同时提供这两种尺寸的图片。这对一些要求快速迭代的小公司来说是不能接受的。因此，本demo忽视2倍图对dpr为1的设备屏幕的视觉损失，通过修改自定义模板默认拼接二倍图并产出1倍尺寸的css样式。
 
-## Build Setup
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 相关路径
+模板路径：<code>gulp_templates/</code>  
+图片输出路径： <code>src/assets/**/gulp_sprite/sprite.png</code>
 
-# build for production with minification
-npm run build
+scss文件输出路径：<code>src/theme/sprites/**/sprite.scss</code>
 
-# build for production and view the bundle analyzer report
-npm run build --report
+## 使用方式
 
-# run unit tests
-npm run unit
+递归生成sprite
+<pre>
+  gulp sprite [dir]
+</pre>
 
-# run e2e tests
-npm run e2e
+清除sprite
+<pre>
+  gulp clearSprite
+</pre>
 
-# run all tests
-npm test
+## 引入
+
+在vue文件的style标签中
 ```
+<style lang="scss" scoped>
+  @import 'src/theme/sprites/{yourdir}/sprite.scss';
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+  .img-class-name {
+    @include sprite($imgname)
+  }
+
+  // ***
+</style>
+```
+将`img-class-name`引入到指定标签下即可。这里注意，$imgname是不含后缀的文件名，前面的`$`不可省略

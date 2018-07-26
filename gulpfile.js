@@ -30,8 +30,6 @@ gulp.task('sprite', function () {
           cssTemplate: 'gulp_templates/scss.2x.template.handlebars',
       })).pipe(gulp.dest(`${dir}/${SPRITEDIR}/`))
       .on('finish', () => {
-        // let ret = child_process.execSync(`tree src/assets/`)
-        // console.log('---ret: ', ret.toString())
         if(!fs.existsSync(scssDir)) {
           child_process.execSync(`mkdir -p ${scssDir}`)
         }
